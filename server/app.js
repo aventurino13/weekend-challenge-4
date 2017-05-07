@@ -8,7 +8,7 @@ var mongoose = require( 'mongoose' );
 var port = 8888;
 
 // mongoose
-mongoose.connect( 'mongodb://localhost:27017/wkndChal4');
+mongoose.connect( 'mongodb://localhost:27017/realestate');
 
 //schema
 var listingSchema = mongoose.Schema({
@@ -19,7 +19,7 @@ var listingSchema = mongoose.Schema({
 }); // end schema
 
 // model
-var listing = mongoose.model( 'Listing', listingSchema );
+var listing = mongoose.model( 'listing', listingSchema );
 
 //uses
 app.use( bodyParser.urlencoded( { extended: true } ) );
@@ -35,4 +35,12 @@ app.listen( port, function(){
 app.get( '/', function( req, res ){
   console.log( 'base url hit' );
   res.sendFile( path.resolve( 'public/views/index.html' ) );
-}); //end base get
+}); //end base url get
+
+
+
+app.get( '/listing', function( req, res ){
+  listing.find().then( function( data ){
+    res.send( data );
+  }); // end find.then
+}); //end get listings
