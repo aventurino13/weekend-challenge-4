@@ -26,6 +26,5 @@ var updateDom = function( listings ){
     } else {
       outputDiv.append( '<div class="col-sm-3 card"><h2><strong> For Rent </strong></h2><h3>  Rent: $' + listings[i].rent +'</h3><p> Sqft : '+ listings[i].sqft + 'ft.</p><p> City : '+ listings[i].city + '</p></div>');
     }
-    //.imageUrl + '" width=100%><h3><strong>' + listings[i].artist + '</strong></h3><p>' + listings[i].name + '</p><p>(' + listings[i].releaseYear + ')</p><button class="removeButton btn btn-secondary" data-id="' + listings[i]._id + '">Remove</button></div>' );
-  } //end for
+  }
 };
